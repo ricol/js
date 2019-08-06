@@ -30,10 +30,10 @@ console.log(three)
 var five = add(two, three)
 console.log(five)
 
-(three(function() {
-	console.log('print 3 times')
-}))()
+// (three(function() {
+// 	console.log('print 3 times')
+// }))()
 
-(five(function () {
-	console.log('print 5 times')
-}))()
+// (five(function () {
+// 	console.log('print 5 times')
+// }))()
