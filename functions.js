@@ -1,3 +1,5 @@
+alert = console.log
+
 function map(f, a) 
 {
   var result = []; // Create a new Array
@@ -35,48 +37,6 @@ console.log(result = fn_inside(5)); // returns 8
 console.log(result1 = outside(3)(5)); // returns 8
 
 ////////////////////////
-
-var createPet = function(name) 
-{
-  var sex;
-  
-  return 
-  {
-    setName: function(newName) 
-    {
-      name = newName;
-    },
-    
-    getName: function() 
-    {
-      return name;
-    },
-    
-    getSex: function() 
-    {
-      return sex;
-    },
-    
-    setSex: function(newSex) 
-    {
-      if(typeof newSex === 'string' && (newSex.toLowerCase() === 'male' || 
-        newSex.toLowerCase() === 'female')) 
-      {
-        sex = newSex;
-      }
-    }
-  }
-}
-
-var pet = createPet('Vivie');
-pet.getName();                  // Vivie
-
-pet.setName('Oliver');
-pet.setSex('male');
-console.log(pet.getSex());                   // male
-console.log(pet.getName());                  // Oliver
-
-///////////////////////////////
 
 function A(x) 
 {
@@ -133,3 +93,49 @@ console.log(a2); // logs [8, 6, 7, 9]
 var a3 = a.map(s => s.length);
 
 console.log(a3); // logs [8, 6, 7, 9]
+
+{
+  function sumAll(...args) { // args is the name for the array
+  let sum = 0;
+
+  for (let arg of args) sum += arg;
+
+  return sum;
+}
+
+alert( sumAll(1) ); // 1
+alert( sumAll(1, 2) ); // 3
+alert( sumAll(1, 2, 3) ); // 6
+}
+
+
+{
+  function showName(firstName, lastName, ...titles) {
+  alert( firstName + ' ' + lastName ); // Julius Caesar
+
+  // the rest go into titles array
+  // i.e. titles = ["Consul", "Imperator"]
+  alert( titles[0] ); // Consul
+  alert( titles[1] ); // Imperator
+  alert( titles.length ); // 2
+}
+
+showName("Julius", "Caesar", "Consul", "Imperator");
+}
+
+{
+  function showName() {
+  alert( arguments.length );
+  alert( arguments[0] );
+  alert( arguments[1] );
+
+  // it's iterable
+  // for(let arg of arguments) alert(arg);
+}
+
+// shows: 2, Julius, Caesar
+showName("Julius", "Caesar");
+
+// shows: 1, Ilya, undefined (no second argument)
+showName("Ilya");
+}
