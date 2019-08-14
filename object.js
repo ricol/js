@@ -1,3 +1,5 @@
+alert = console.log
+
 var o = {
   a: 7,
   get b() { 
@@ -43,3 +45,33 @@ myobj.b = 12;
 // Removes the a property, leaving myobj with only the b property.
 delete myobj.a;
 console.log ('a' in myobj); // output: "false"
+
+{
+  let user = {
+  name: "John",
+  age: 30
+};
+
+alert(Object.keys(user))
+alert(Object.values(user))
+alert(Object.entries(user))
+// loop over values
+for (let value of Object.values(user)) {
+  alert(value); // John, then 30
+}
+}
+
+{
+  let prices = {
+  banana: 1,
+  orange: 2,
+  meat: 4,
+};
+
+let doublePrices = Object.fromEntries(
+  // convert to array, map, and then fromEntries gives back the object
+  Object.entries(prices).map(([key, value]) => [key, value * 2])
+);
+
+alert(doublePrices.meat); // 8
+}
