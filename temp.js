@@ -1,52 +1,32 @@
-/**
- * Example 1
- */
-console.log(x === undefined); // true
-var x = 3;
+alert = console.log
 
-/**
- * Example 2
- */
-// will return a value of undefined
-var myvar = 'my value';
- 
-(function() {
-  console.log(myvar); // undefined
-  var myvar = 'local value';
-  console.log(myvar);
-})();
+{
+  let group = {
+    title: "Our Group",
+    students: ["John", "Pete", "Alice"],
 
-/* Function declaration */
+    showList() {
+      this.students.forEach(
+        student => alert(this.title + ': ' + student)
+      );
+    }
+  };
 
-foo(); // "bar"
-
-function foo() {
-  console.log('bar');
+  group.showList();
 }
 
-/* Function expression */
+{
+  let group = {
+  title: "Our Group",
+  students: ["John", "Pete", "Alice"],
 
-var baz = function() {
-  console.log('bar2');
+  showList() {
+    this.students.forEach(function(student) {
+      // Error: Cannot read property 'title' of undefined
+      alert(this.title + ': ' + student)
+    });
+  }
 };
 
-baz(); // TypeError: baz is not a function
-
-var sales = 'Toyota';
-
-function carTypes(name) 
-{
-  if (name === 'Honda') 
-  {
-    return name;
-  } else 
-  {
-    return "Sorry, we don't sell " + name + ".";
-  }
+group.showList();
 }
-
-var car = { myCar: 'Saturn', getCar: carTypes('Honda'), special: sales };
-
-console.log(car.myCar);   // Saturn
-console.log(car.getCar);  // Honda
-console.log(car.special); // Toyota
