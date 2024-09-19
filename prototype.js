@@ -1,7 +1,6 @@
 'use strict'
 
-function Student(props)
-{
+function Student(props) {
 	this.name = props.name || 'anonymous'
 	this.grade = props.grad || 1
 }
@@ -10,8 +9,7 @@ Student.prototype.hello = function() {
 	console.log('hello ' + this.name + '!')
 }
 
-function createStudent(props)
-{
+function createStudent(props) {
 	return new Student(props || {})
 }
 
@@ -22,16 +20,15 @@ console.log(xiaohua.grade)
 xiaoming.hello()
 xiaohua.hello()
 
-function PrimaryStudent(props)
-{
+function PrimaryStudent(props) {
 	Student.call(this, props)
 	this.grade = props.grade || 1
 }
 
 var p1 = new PrimaryStudent({name: "ricol", grad: 2})
+console.log("showing...")
 var p = p1
-while (p != null)
-{
+while (p != null) {
 	console.log("type: " + typeof(p) + ", content: " + p)
-	p = p.prototype
+	p = p.__proto__
 }

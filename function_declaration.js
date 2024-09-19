@@ -4,12 +4,14 @@
 function show(n) {
 	console.log('welcome ' + n)
 }
+
 show('star')
 
 //declare an anonymous function and assign it to a variable
 let show_new = function(n) {
 	console.log('welcome ' + n)
 }
+
 show_new('wang')
 
 //declare an anonymous function in new systax(arrow function) and assign it to a variable

@@ -8,8 +8,7 @@ var Student = {
 	}
 }
 
-function createStudent(name)
-{
+function createStudent(name) {
 	var s = Object.create(Student)
 	s.name = name
 	return s
@@ -19,8 +18,7 @@ var xiaoming = createStudent('xiao ming')
 xiaoming.run()
 console.log(xiaoming.__proto__ === Student)
 var p = xiaoming
-while (p != null)
-{
+while (p != null) {
 	console.log(p)
 	p = p.__proto__
 }
